@@ -1,0 +1,395 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+    
+  Prometheus组件与架构 - 深入剖析Prometheus
+  
+  </title>
+ <meta name="description" content="">
+ <link href="atom.xml" rel="alternate" title="深入剖析Prometheus" type="application/atom+xml">
+    <link rel="stylesheet" href="asset/css/foundation.min.css" />
+    <link rel="stylesheet" href="asset/css/docs.css" />
+
+    <script src="asset/js/vendor/modernizr.js"></script>
+    <script src="asset/js/vendor/jquery.js"></script>
+    <script src="asset/highlightjs/highlight.pack.js"></script>
+    <link href="asset/highlightjs/styles/github.css" media="screen, projection" rel="stylesheet" type="text/css">
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+  </head>
+  <body class="antialiased hide-extras">
+    
+    <div class="marketing off-canvas-wrap" data-offcanvas>
+      <div class="inner-wrap">
+
+
+<nav class="top-bar docs-bar hide-for-small" data-topbar>
+
+<div id="header">
+    <h1><a href="index.html">深入剖析Prometheus</a></h1>
+</div>
+
+</nav>
+        <nav class="tab-bar show-for-small">
+  <a href="javascript:void(0)" class="left-off-canvas-toggle menu-icon">
+    <span> &nbsp; 深入剖析Prometheus</span>
+  </a>
+</nav>
+
+<aside class="left-off-canvas-menu">
+      <ul class="off-canvas-list">
+      <li><a href="index.html">Home</a></li>
+      
+        <li class="divider"></li>
+        <li><label>Prometheus简介</label></li>
+
+          
+            <li><a title="监控系统概述" href="jian-kong-gai-shuemspemsp-ben.html">监控系统概述</a></li>
+          
+            <li><a title="Prometheus概述" href="15839814370590.html">Prometheus概述</a></li>
+          
+            <li><a title="Prometheus组件与架构" href="15839817915948.html">Prometheus组件与架构</a></li>
+          
+            <li><a title="Prometheus适用场景" href="15839819738320.html">Prometheus适用场景</a></li>
+          
+            <li><a title="指标的数据模型" href="15839821214979.html">指标的数据模型</a></li>
+          
+            <li><a title="指标的数据类型" href="15839822589974.html">指标的数据类型</a></li>
+          
+            <li><a title="任务和实例" href="15839822897749.html">任务和实例</a></li>
+          
+
+      
+        <li class="divider"></li>
+        <li><label>Prometheus的安装与启动</label></li>
+
+          
+            <li><a title="Prometheus二进制方式安装" href="15839799784985.html">Prometheus二进制方式安装</a></li>
+          
+            <li><a title="创建systemd服务单元文件管理prometheus" href="15839825116395.html">创建systemd服务单元文件管理prometheus</a></li>
+          
+
+      
+        <li class="divider"></li>
+        <li><label>Prometheus配置文件详解与主机监控</label></li>
+
+          
+            <li><a title="全局配置" href="15839834045191.html">全局配置</a></li>
+          
+            <li><a title="数据拉取配置" href="15839834296106.html">数据拉取配置</a></li>
+          
+            <li><a title="label标签的配置与使用" href="15839834564941.html">label标签的配置与使用</a></li>
+          
+            <li><a title="基于文件服务发现配置" href="15839834811275.html">基于文件服务发现配置</a></li>
+          
+            <li><a title="通过node_exporter监控Linux主机" href="15839835019093.html">通过node_exporter监控Linux主机</a></li>
+          
+
+      
+        <li class="divider"></li>
+        <li><label>探索PromQL查询</label></li>
+
+          
+            <li><a title="初识PromQL" href="15839841002510.html">初识PromQL</a></li>
+          
+            <li><a title="PromQL常用操作符" href="15839841117016.html">PromQL常用操作符</a></li>
+          
+            <li><a title="PromQL聚合操作" href="15839841454808.html">PromQL聚合操作</a></li>
+          
+
+      
+        <li class="divider"></li>
+        <li><label>Prometheus监控实践</label></li>
+
+          
+            <li><a title="prometheus监控CPU和内存使用率" href="15839841733938.html">prometheus监控CPU和内存使用率</a></li>
+          
+            <li><a title="prometheus监控磁盘" href="15839841806331.html">prometheus监控磁盘</a></li>
+          
+            <li><a title="使用Grafana展示Prometheus数据" href="15839841973332.html">使用Grafana展示Prometheus数据</a></li>
+          
+            <li><a title="使用mysqld_exporter监控MySQL服务" href="15839847659986.html">使用mysqld_exporter监控MySQL服务</a></li>
+          
+
+      
+        <li class="divider"></li>
+        <li><label>Prometheus的远端探测</label></li>
+
+          
+            <li><a title="blackbox_exporter介绍" href="15839848579044.html">blackbox_exporter介绍</a></li>
+          
+            <li><a title="blackbox_exporter配置及使用" href="15839849152297.html">blackbox_exporter配置及使用</a></li>
+          
+            <li><a title="写一个简单的http探测" href="15839849653881.html">写一个简单的http探测</a></li>
+          
+            <li><a title="blackbox_exporter使用systemd的方式启动" href="15839850323209.html">blackbox_exporter使用systemd的方式启动</a></li>
+          
+            <li><a title="在Prometheus下配置blockbox exporter" href="15839850663032.html">在Prometheus下配置blockbox exporter</a></li>
+          
+
+      
+        <li class="divider"></li>
+        <li><label>Pushgateway推送网关</label></li>
+
+          
+            <li><a title="Pushgateway介绍" href="15839851263271.html">Pushgateway介绍</a></li>
+          
+            <li><a title="安装pushgateway" href="15839851679033.html">安装pushgateway</a></li>
+          
+            <li><a title="pushgateway结合自定义脚本监控" href="15839852038668.html">pushgateway结合自定义脚本监控</a></li>
+          
+            <li><a title="pushgateway与prometheus结合使用" href="15839852459628.html">pushgateway与prometheus结合使用</a></li>
+          
+
+      
+        <li class="divider"></li>
+        <li><label>Alertmanager告警管理器</label></li>
+
+          
+            <li><a title="Alertmanager介绍" href="15839852800110.html">Alertmanager介绍</a></li>
+          
+            <li><a title="部署Alertmanager" href="15839852993088.html">部署Alertmanager</a></li>
+          
+            <li><a title="Prometheus告警配置和规则配置" href="15839854412649.html">Prometheus告警配置和规则配置</a></li>
+          
+            <li><a title="集成邮件告警" href="15839854641901.html">集成邮件告警</a></li>
+          
+            <li><a title="集成企业微信告警" href="15839855043197.html">集成企业微信告警</a></li>
+          
+            <li><a title="集成钉钉告警" href="15839856026123.html">集成钉钉告警</a></li>
+          
+            <li><a title="告警分组、抑制、静默" href="15839856905581.html">告警分组、抑制、静默</a></li>
+          
+            <li><a title="实战告警规则案例" href="15839857094920.html">实战告警规则案例</a></li>
+          
+
+      
+      </ul>
+    </aside>
+
+<a class="exit-off-canvas" href="#"></a>
+
+        <section id="main-content" role="main" class="scroll-container">
+
+          <div class="row">
+            <div class="large-3 medium-3 columns">
+              <div class="hide-for-small">
+                <div class="sidebar">
+                <nav>
+                  <ul id="side-nav" class="side-nav">
+
+                    
+                      <li class="side-title"><span>Prometheus简介</span></li>
+                        
+                          <li><a title="监控系统概述" href="jian-kong-gai-shuemspemsp-ben.html">监控系统概述</a></li>
+                        
+                          <li><a title="Prometheus概述" href="15839814370590.html">Prometheus概述</a></li>
+                        
+                          <li><a title="Prometheus组件与架构" href="15839817915948.html">Prometheus组件与架构</a></li>
+                        
+                          <li><a title="Prometheus适用场景" href="15839819738320.html">Prometheus适用场景</a></li>
+                        
+                          <li><a title="指标的数据模型" href="15839821214979.html">指标的数据模型</a></li>
+                        
+                          <li><a title="指标的数据类型" href="15839822589974.html">指标的数据类型</a></li>
+                        
+                          <li><a title="任务和实例" href="15839822897749.html">任务和实例</a></li>
+                        
+
+                    
+                      <li class="side-title"><span>Prometheus的安装与启动</span></li>
+                        
+                          <li><a title="Prometheus二进制方式安装" href="15839799784985.html">Prometheus二进制方式安装</a></li>
+                        
+                          <li><a title="创建systemd服务单元文件管理prometheus" href="15839825116395.html">创建systemd服务单元文件管理prometheus</a></li>
+                        
+
+                    
+                      <li class="side-title"><span>Prometheus配置文件详解与主机监控</span></li>
+                        
+                          <li><a title="全局配置" href="15839834045191.html">全局配置</a></li>
+                        
+                          <li><a title="数据拉取配置" href="15839834296106.html">数据拉取配置</a></li>
+                        
+                          <li><a title="label标签的配置与使用" href="15839834564941.html">label标签的配置与使用</a></li>
+                        
+                          <li><a title="基于文件服务发现配置" href="15839834811275.html">基于文件服务发现配置</a></li>
+                        
+                          <li><a title="通过node_exporter监控Linux主机" href="15839835019093.html">通过node_exporter监控Linux主机</a></li>
+                        
+
+                    
+                      <li class="side-title"><span>探索PromQL查询</span></li>
+                        
+                          <li><a title="初识PromQL" href="15839841002510.html">初识PromQL</a></li>
+                        
+                          <li><a title="PromQL常用操作符" href="15839841117016.html">PromQL常用操作符</a></li>
+                        
+                          <li><a title="PromQL聚合操作" href="15839841454808.html">PromQL聚合操作</a></li>
+                        
+
+                    
+                      <li class="side-title"><span>Prometheus监控实践</span></li>
+                        
+                          <li><a title="prometheus监控CPU和内存使用率" href="15839841733938.html">prometheus监控CPU和内存使用率</a></li>
+                        
+                          <li><a title="prometheus监控磁盘" href="15839841806331.html">prometheus监控磁盘</a></li>
+                        
+                          <li><a title="使用Grafana展示Prometheus数据" href="15839841973332.html">使用Grafana展示Prometheus数据</a></li>
+                        
+                          <li><a title="使用mysqld_exporter监控MySQL服务" href="15839847659986.html">使用mysqld_exporter监控MySQL服务</a></li>
+                        
+
+                    
+                      <li class="side-title"><span>Prometheus的远端探测</span></li>
+                        
+                          <li><a title="blackbox_exporter介绍" href="15839848579044.html">blackbox_exporter介绍</a></li>
+                        
+                          <li><a title="blackbox_exporter配置及使用" href="15839849152297.html">blackbox_exporter配置及使用</a></li>
+                        
+                          <li><a title="写一个简单的http探测" href="15839849653881.html">写一个简单的http探测</a></li>
+                        
+                          <li><a title="blackbox_exporter使用systemd的方式启动" href="15839850323209.html">blackbox_exporter使用systemd的方式启动</a></li>
+                        
+                          <li><a title="在Prometheus下配置blockbox exporter" href="15839850663032.html">在Prometheus下配置blockbox exporter</a></li>
+                        
+
+                    
+                      <li class="side-title"><span>Pushgateway推送网关</span></li>
+                        
+                          <li><a title="Pushgateway介绍" href="15839851263271.html">Pushgateway介绍</a></li>
+                        
+                          <li><a title="安装pushgateway" href="15839851679033.html">安装pushgateway</a></li>
+                        
+                          <li><a title="pushgateway结合自定义脚本监控" href="15839852038668.html">pushgateway结合自定义脚本监控</a></li>
+                        
+                          <li><a title="pushgateway与prometheus结合使用" href="15839852459628.html">pushgateway与prometheus结合使用</a></li>
+                        
+
+                    
+                      <li class="side-title"><span>Alertmanager告警管理器</span></li>
+                        
+                          <li><a title="Alertmanager介绍" href="15839852800110.html">Alertmanager介绍</a></li>
+                        
+                          <li><a title="部署Alertmanager" href="15839852993088.html">部署Alertmanager</a></li>
+                        
+                          <li><a title="Prometheus告警配置和规则配置" href="15839854412649.html">Prometheus告警配置和规则配置</a></li>
+                        
+                          <li><a title="集成邮件告警" href="15839854641901.html">集成邮件告警</a></li>
+                        
+                          <li><a title="集成企业微信告警" href="15839855043197.html">集成企业微信告警</a></li>
+                        
+                          <li><a title="集成钉钉告警" href="15839856026123.html">集成钉钉告警</a></li>
+                        
+                          <li><a title="告警分组、抑制、静默" href="15839856905581.html">告警分组、抑制、静默</a></li>
+                        
+                          <li><a title="实战告警规则案例" href="15839857094920.html">实战告警规则案例</a></li>
+                        
+
+                    
+                  </ul>
+                </nav>
+                </div>
+              </div>
+            </div>
+            <div class="large-9 medium-9 columns">
+
+ <div class="markdown-body">
+<h1>Prometheus组件与架构</h1>
+
+<h2 id="toc_0">Prometheus主要组件</h2>
+
+<p>&emsp;&emsp;Prometheus系统有多个组件构成，并且其中部分组件是可选的。大部分组件是由Go语言编写，所以使得这些组件很容易编译和部署。</p>
+
+<ul>
+<li>Exporter：类似Agent，安装在客户端上，用来监控数据，并向服务器端提供监控数据样本，常见的有：node_exporter用来收集硬件信息、mysqld_ exporter用于收集MySQL信息等。还可以根据需求自定义Exporter。</li>
+<li>Prometheus Server：核心的服务器端，主要负责存储时间序列数据。</li>
+<li>client library: 客户端，将需要被监控的服务生成对应的metrics，并暴露给Prometheus Server。</li>
+<li>Push Gateway：除了Pull方式，Prometheus还支持通过Push Gateway主动向服务端推送数据。该组件主要用于存在时间较短的任务，由于这类任务存在时间较短，可能当Prometheus来拉取(pull)之前，数据已经消失了，所以，这些任务可以直接向Prometheus Server主动端推送自己的metrics。这种方式主要用于服务层面的metrics，如果是机器层面的metrics，则需要用到exporter。</li>
+<li>Alertmanager：用来处理报警，将告警信息发送给用户。</li>
+</ul>
+
+<h2 id="toc_1">Prometheus架构图</h2>
+
+<p><img src="media/15839817915948/15839818714925.jpg" alt="" style="width:1351px;"/></p>
+
+<p>&emsp;&emsp;Prometheus服务，可以直接通过目标拉取数据，或者间接地通过中间网关拉取数据。它在本地存储抓取的所有数据，并通过一定规则进行清理和整理数据，并把得到的结果存储到新的时间序列中，Grafana和其他API可视化地展示收集的数据。<br/>
+&emsp;&emsp;Prometheus的基本原理是通过HTTP协议周期性抓取被监控组件的状态，任意组件只要提供对应的HTTP接口就可以接入监控。不需要任何SDK或者其他的集成过程。这样做非常适合做虚拟化环境监控系统，比如VM、Docker、Kubernetes等。输出被监控组件信息的HTTP接口被叫做exporter。目前互联网公司常用的组件大部分都有exporter可以直接使用，比如Varnish、Haproxy、Nginx、MySQL、Linux系统信息(包括磁盘、内存、CPU、网络等等)。</p>
+
+
+</div>
+
+<br /><br />
+<hr />
+
+<div class="row clearfix">
+  <div class="large-6 columns">
+	<div class="text-left" style="padding:15px 0px;">
+		
+	        <a href="15839814370590.html"  title="Previous Post: Prometheus概述">&laquo; Prometheus概述</a>
+	    
+	</div>
+  </div>
+  <div class="large-6 columns">
+	<div class="text-right" style="padding:15px 0px;">
+		
+	        <a href="15839819738320.html" 
+	        title="Next Post: Prometheus适用场景">Prometheus适用场景 &raquo;</a>
+	    
+	</div>
+  </div>
+</div>
+
+<div class="row">
+<div style="padding:0px 0.93em;" class="share-comments">
+
+</div>
+</div>
+<script type="text/javascript">
+	$(function(){
+		var currentURL = '15839817915948.html';
+		$('#side-nav a').each(function(){
+			if($(this).attr('href') == currentURL){
+				$(this).parent().addClass('active');
+			}
+		});
+	});
+</script>  
+</div></div>
+
+
+<div class="page-bottom">
+  <div class="row">
+  <hr />
+  <div class="small-9 columns">
+  <p class="copyright">Copyright &copy; 2015
+Powered by <a target="_blank" href="http://www.mweb.im">MWeb</a>,&nbsp; 
+Theme used <a target="_blank" href="http://github.com">GitHub CSS</a>.</p>
+  </div>
+  <div class="small-3 columns">
+  <p class="copyright text-right"><a href="#header">TOP</a></p>
+  </div>
+   
+  </div>
+</div>
+
+        </section>
+      </div>
+    </div>
+    
+    
+    <script src="asset/js/foundation.min.js"></script>
+    <script src="asset/js/foundation/foundation.offcanvas.js"></script>
+    <script>
+      $(document).foundation();
+
+     
+    </script>
+    
+
+
+  </body>
+</html>
