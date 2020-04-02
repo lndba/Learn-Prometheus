@@ -15,10 +15,10 @@
 ## 视频将会持续更新。。。
 
 ## 课程介绍
-![课程介绍1](img/1.png)
+![课程介绍1](img/%E8%AF%BE%E7%A8%8B%E4%BB%8B%E7%BB%8D1.png)
 
-![课程介绍2](img/2.png)
+![课程介绍2](img/%E8%AF%BE%E7%A8%8B%E4%BB%8B%E7%BB%8D2.png)
 
-![课程介绍3](img/3.png)
+![课程介绍3](img/%E8%AF%BE%E7%A8%8B%E4%BB%8B%E7%BB%8D3.png)
 
-![课程介绍4](img/4.png)
+![课程介绍4](img/%E8%AF%BE%E7%A8%8B%E4%BB%8B%E7%BB%8D4.png)
